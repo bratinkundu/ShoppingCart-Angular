@@ -1,0 +1,8 @@
+@media screen and (min-width: 550px) {
+    .features {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+}
+

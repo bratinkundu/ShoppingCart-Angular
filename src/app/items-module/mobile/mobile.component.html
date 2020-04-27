@@ -1,0 +1,28 @@
+<div class="text-center mt-3">
+    <h3>Mobile Phones</h3>
+    <small class="text-muted">{{allMobiles.length}} Items</small>
+</div>
+
+<div class="mt-2">
+    <app-searchbar (textChange)="getText($event)"></app-searchbar>
+</div>
+    <p class="text-center" *ngIf="search">Seach result for <b>{{search}}</b></p>
+  <div class="container mt-2">
+    <div  class="card-deck">
+      <div *ngFor="let item of allMobiles | filter:search" class="card border-0 text-center mt-4"  [title]="item.Name">
+        <img  src="{{item.imageurl}}"  height="200" width="92" class="align-self-center " alt="Card image cap" [routerLink]="['/details','mobiles',item.id]">
+        <div class="card-body">
+          <h5 class="card-title">{{item.Name}}</h5>
+          <p class="card-text">{{item.shortFeature}}</p>
+        </div>
+        <div class="custom-card-footer d-flex flex-row justify-content-between">
+            <h4>{{item.Price | currency:'INR':'symbol-narrow':'2.0'}}</h4>
+            <button type="button" class="btn btn-light"  [routerLink]="['/details','mobiles',item.id]"><i class="fas fa-info"></i> Details</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+ 
