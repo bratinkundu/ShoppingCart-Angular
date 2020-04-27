@@ -24,6 +24,11 @@ export class CartitemsComponent implements OnInit {
   getCartItems(){
     this.cartItems = this.cartservice.getItems()
   }
+
+  removeItem(item){
+    this.totalAmount -= item['Price']
+    this.cartservice.removeFromCart(item)
+  }
   select(){
     alert(this.selectedValue)
   }

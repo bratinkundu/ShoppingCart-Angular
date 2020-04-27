@@ -17,21 +17,16 @@
                                 <td>
                                     <figure class="itemside align-items-center">
                                         <div class="aside"><img src="{{item.imageurl}}" class="img-sm"></div>
-                                        <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{item.Name}}</a></figcaption>
+                                        <figcaption class="info"> <a class="title text-dark" data-abc="true">{{item.Name}}</a></figcaption>
                                     </figure>
                                 </td>
-                                <td> 
-                                    <select [(ngModel)]="selectedValue" (change)="select()" class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
-                                </td>
+                                 <td> 
+                                    1
+                                </td> 
                                 <td>
-                                    <div class="price-wrap"> <var class="price">{{item.Price * selectedValue | currency:'INR'}}</var> <small class="text-muted"> {{item.Price | currency:'INR'}} </small> </div>
+                                    <div class="price-wrap"> <var class="price">{{item.Price  | currency:'INR'}}</var> <small class="text-muted"> {{item.Price | currency:'INR'}} each</small> </div>
                                 </td>
-                                <td class="text-right d-none d-md-block"> <a href="" class="btn btn-light" data-abc="true"> Remove</a> </td>
+                                <td class="text-right d-none d-md-block"> <button class="btn btn-light" data-abc="true" (click)="removeItem(item)"> Remove</button> </td>
                             </tr>
                         </tbody>
                     </table>

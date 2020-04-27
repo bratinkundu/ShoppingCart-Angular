@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CartitemsComponent } from './cartitems/cartitems.component';
 import {FormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router'
-import { HomeComponent } from '../home/home.component';
+import {AuthenticationGuard} from '../authentication/Guards/authentication.guard'
 
 const routes: Routes = [
-  
+  {
+    path:'cart',
+    component:CartitemsComponent,
+    canActivate:[AuthenticationGuard]
+  }
 ];
 
 @NgModule({

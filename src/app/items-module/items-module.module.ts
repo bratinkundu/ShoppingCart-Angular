@@ -11,7 +11,23 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 const routes: Routes = [
-  {path:"details/:category/:itemId", component:ItemDetailComponent}
+  {
+    path:"mobile", 
+    
+    component:MobileComponent
+  },
+  {
+    path:"camera", 
+    component:CamerasComponent
+  },
+  {
+    path:"laptop", 
+    component:LaptopComponent
+  },
+  {
+    path:"details/:category/:itemId", 
+    component:ItemDetailComponent
+  }
 ];
 
 @NgModule({

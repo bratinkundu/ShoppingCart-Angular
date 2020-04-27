@@ -1,0 +1,43 @@
+section {
+    background-color: #3e3e3e;
+    height: 100%;
+}
+section .cardback {
+    height: 100%;
+}
+section .cardback .cardbody {
+    padding: 35px 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #000;
+    max-width: 90%;
+    min-width: 45%;
+}
+section .cardback .cardbody a {
+    color: rgba(0, 0, 0, .4);
+    font-size: 0.745rem;
+    text-decoration: none;
+}
+section .cardback .cardbody a:hover {
+    color: rgba(85, 85, 255, 0.6);
+    text-decoration: none;
+}
+section .cardback .cardbody .cardtitle {
+    padding-bottom: 30px;
+}
+section .cardback .cardbody .cardtitle h4 {
+    font-weight: 200;
+    font-size: 2.5rem;
+    text-align: center;
+}
+section .cardback .cardbody .cardinput label {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+section .cardback .cardbody .cardinput span {
+    margin-top: 10px;
+}
+section .cardback .cardbody .cardinput button {
+    margin-top: 30px;
+}

@@ -9,6 +9,7 @@ import { ItemsModuleModule} from './items-module/items-module.module';
 import {FormsModule} from '@angular/forms';
 import {CartModule} from '../app/cart/cart.module'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {AuthguardService} from '../app/services/authguard.service'
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     Ng2SearchPipeModule,
     CartModule
   ],
-  providers: [],
+  providers: [AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
