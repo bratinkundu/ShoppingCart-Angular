@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ItemsModuleModule} from './items-module/items-module.module';
 import {FormsModule} from '@angular/forms';
+import {CartModule} from '../app/cart/cart.module'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
@@ -22,7 +23,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HttpClientModule,
     ItemsModuleModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
