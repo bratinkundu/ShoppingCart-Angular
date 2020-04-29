@@ -21,10 +21,10 @@
                                     </figure>
                                 </td>
                                  <td class="text-center"> 
-                                    1
+                                    {{item.qyt}}
                                 </td> 
                                 <td>
-                                    <div class="price-wrap"> <var class="price">{{item.Price  | currency:'INR'}}</var> <small class="text-muted"> {{item.Price | currency:'INR'}} each</small> </div>
+                                    <div class="price-wrap"> <var class="price">{{item.Price * item.qyt  | currency:'INR'}}</var> <small class="text-muted"> {{item.Price | currency:'INR'}} each</small> </div>
                                 </td>
                                 <td class="text-right d-none d-md-block"> <button class="btn btn-light" data-abc="true" (click)="removeItem(item)"> Remove</button> </td>
                             </tr>

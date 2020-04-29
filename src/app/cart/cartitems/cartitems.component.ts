@@ -40,7 +40,7 @@ export class CartitemsComponent implements OnInit {
     this.totalAmount = 0
     for(let i in this.cartItems)
     {
-      this.totalAmount += this.cartItems[i]['Price']
+      this.totalAmount += this.cartItems[i]['Price']*this.cartItems[i]['qyt']
     }
   }
 }
