@@ -17,22 +17,27 @@ export class CartitemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCartItems()
-    this.calculateTotal()
-    console.log(this.cartItems)
   }
 
   getCartItems(){
-    this.cartItems = this.cartservice.getItems()
+    this.cartservice.getItems().subscribe(
+      data =>{
+        this.cartItems = data
+        this.calculateTotal()
+      }
+    )
   }
 
   removeItem(item){
-    this.totalAmount -= item['Price']
-    this.cartservice.removeFromCart(item)
+    this.cartservice.removeFromCart(item.id).subscribe(
+      data =>{
+        this.getCartItems()
+      }
+    )
   }
-  select(){
-    alert(this.selectedValue)
-  }
+
   calculateTotal(){
+    this.totalAmount = 0
     for(let i in this.cartItems)
     {
       this.totalAmount += this.cartItems[i]['Price']

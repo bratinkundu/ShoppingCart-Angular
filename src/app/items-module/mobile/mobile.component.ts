@@ -10,8 +10,6 @@ import { SearchbarComponent } from 'src/app/items-module/searchbar/searchbar.com
 export class MobileComponent implements OnInit {
 
   allMobiles:any =[]
-  features
-  itemData
   search
   
   constructor(public mobileservice:ItemService) { }
@@ -35,12 +33,4 @@ export class MobileComponent implements OnInit {
     this.search = text;  
 }
 
-getItemDetails(category:string,itemid:number){
-  this.mobileservice.getItemById(category,itemid).subscribe(
-    data =>{
-      this.itemData = data;
-    }
-  )
-  this.features = this.itemData.Description.split(',');
-}
 }

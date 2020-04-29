@@ -17,10 +17,11 @@ export class LoginComponent implements OnInit {
   check(n: string, p: string) {
     if (n === 'bkundu53@gmail.com' && p === '123456') {
       localStorage.setItem('username', n);
-      this._router.navigate([''])
+      window.location.href = ''
       return true;
-    } else {
-      alert('incorrect Data');
+    } 
+    else {
+      alert('Please check your credentials');
       return false;
     }
   }

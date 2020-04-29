@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import {GlobalVariables} from './../common/global-variables';
 
 @Injectable({
   providedIn: 'root'
@@ -6,19 +9,27 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
   cartItems:any =[]
-  constructor() { }
+  apiUrl : string = GlobalVariables.apiUrl
+  constructor(private httpclient:HttpClient) { }
 
   addToCart(item) {
-    this.cartItems.push(item);
-    console.log(this.cartItems)
+    return this.httpclient.post(this.apiUrl+"cart",item)
   }
 
-  removeFromCart(item){
-    this.cartItems.splice(this.cartItems.indexOf(item),1)
+  removeFromCart(id){
+    return this.httpclient.delete(this.apiUrl+"cart/"+id)
+  }
+
+  editInCart(item){
+    return this.httpclient.put(this.apiUrl+"cart/"+item.id,item)
   }
 
   getItems() {
-    return this.cartItems;
+    return this.httpclient.get(this.apiUrl+"cart")
+  }
+
+  getCartItem(id){
+    return this.httpclient.get(this.apiUrl+"cart/"+id)
   }
 
   clearCart() {

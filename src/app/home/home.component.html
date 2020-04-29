@@ -90,53 +90,28 @@
 <!--Latest Product comes here-->
 <div>
   <h3 class="text-dark text-center">Latest Products</h3>
-  <div class="card-group mt-5 text-center">
-    <div class="card" style="border: 0;">
-      <img src="../../assets/SamsungA51.jpeg" height="200" width="92" class="align-self-center" alt="...">
+  <!-- <div class="card-group mt-5 text-center">
+    <div *ngFor="let item of latestProducts" class="card" style="border: 0;">
+      <img src="{{item.imageurl}}" height="200" width="92" style="width: initial;" class="align-self-center" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text">Last updated 3 mins ago</p>
+        <h5 class="card-title">{{item.Name}}</h5>
+        <p class="card-text">{{item.shortFeature}}</p>
+        <p class="card-text">{{item.Price | currency:'INR'}}</p>
       </div>
     </div>
-    <div class="card" style="border: 0;">
-      <img src="../../assets/SamsungA51.jpeg" height="200" width="92" class="align-self-center" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text">Last updated 3 mins ago</p>
-      </div>
-    </div>
-    <div class="card" style="border: 0;">
-      <img src="../../assets/SamsungA51.jpeg" height="200" width="92" class="align-self-center" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text">Last updated 3 mins ago</p>
-      </div>
-    </div>
-    <div class="card" style="border: 0;">
-      <img src="../../assets/SamsungA51.jpeg" height="200" width="92" class="align-self-center" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text">Last updated 3 mins ago</p>
-      </div>
-    </div>
-    <div class="card" style="border: 0;">
-      <img src="../../assets/SamsungA51.jpeg" height="200" width="92" class="align-self-center" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text">Last updated 3 mins ago</p>
-      </div>
-    </div>
-    <div class="card" style="border: 0;">
-      <img src="../../assets/SamsungA51.jpeg" height="200" width="92" class="align-self-center" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text">Last updated 3 mins ago</p>
+  </div> -->
+  <div class="container mt-2">
+    <div  class="card-deck">
+      <div *ngFor="let item of latestProducts " class="card border-0 text-center mt-4">
+        <img  src="{{item.imageurl}}"  height="200" width="202" style="width: initial;" class="align-self-center " alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{item.Name}}</h5>
+          <p class="card-text">{{item.shortFeature}}</p>
+        </div>
+        <div class="custom-card-footer d-flex flex-row justify-content-between">
+            <h4>{{item.Price | currency:'INR':'symbol-narrow':'2.0'}}</h4>
+            <button type="button" class="btn btn-light"  [routerLink]="['/details',item.category,item.id]"><i class="fas fa-info"></i> Details</button>
+          </div>
       </div>
     </div>
   </div>

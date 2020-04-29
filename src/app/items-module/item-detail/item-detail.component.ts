@@ -26,7 +26,37 @@ export class ItemDetailComponent implements OnInit {
   }
 
   addtoCart(item){
-    this.cartservice.addToCart(item)
-    alert("Added to cart")
+    this.cartservice.addToCart(item).subscribe(
+       () =>{
+        alert("Added to cart")
+       }
+     )
+  }
+
+  checkProduct(item)
+  {
+    var localitem
+    this.cartservice.getCartItem(item.id).subscribe(
+      data =>{
+        localitem = data
+        if(localitem.qyt >= 1)
+        {
+          localitem.qyt = localitem.qyt + 1
+          this.editProduct(localitem)
+        }
+      },
+      error =>{
+        item.qyt = 1
+        this.addtoCart(item)
+      }
+    )
+  }
+
+  editProduct(item){
+    this.cartservice.editInCart(item).subscribe(
+      data =>{
+        alert('Product added to cart')
+      }
+    )
   }
 }

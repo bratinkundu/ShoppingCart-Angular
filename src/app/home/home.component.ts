@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemService} from '../services/item.service'
 
 
 @Component({
@@ -8,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  latestProducts : any =[]
+
+  constructor(public itemservice : ItemService) { }
 
   ngOnInit(): void {
-    
+    this.itemservice.getLatestProducts().subscribe(
+      data => {
+        this.latestProducts = data
+      }
+    )
   }
 
 }

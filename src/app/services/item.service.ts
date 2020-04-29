@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import {GlobalVariables} from '../common/global-variables'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  apiUrl : string = "http://localhost:3000/"
+  apiUrl : string = GlobalVariables.apiUrl
   constructor(private httpclient:HttpClient) { }
 
   getAllMobileData():Observable<any>{
@@ -24,6 +24,6 @@ export class ItemService {
   }
   
   getLatestProducts():Observable<any>{
-    return this.httpclient.get("")
+    return this.httpclient.get(this.apiUrl+'latest')
   }
 }
